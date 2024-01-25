@@ -20,19 +20,12 @@ export default {
                 password: password
             }
             let newUser = await modelController.create(User, params);
+            if (!newUser) throw "Failed to add new user";
             let role = await modelController.findByPk(Role, roles.User);
             await newUser.addRole(role);
             newUser = await modelController.findByPk(User, newUser.ID, true, true);
             return newUser;
         },
-        createPost: async (userID, profileID, text) => {
-            let params = {
-                text: text
-            }
-            let user = await modelController.findByPk(User, userID, true, true);
-            let profile = await user.getProfile({ where: { ID: profileID } });
-            let newPost = await profile.createPost(params);
-            return newPost;
-        }
+        
     }
 }
