@@ -18,6 +18,18 @@ router.post('/like', async (req, res) => {
         errorHandler(err, req, res);
     }
 });
+router.post('/', async (req, res) => {
+    try {
+        console.log(req.body);        
+        let profileID = req.body.profileID;
+        let text = req.body.text;
+        res.send(await postServices.post.createPost(profileID, text));
+    }
+    catch (err) {
+        errorHandler(err, req, res);
+    }
+
+});
 router.get('/', async (req, res) => {
     try {
         let postID = req.query.id;
@@ -28,5 +40,4 @@ router.get('/', async (req, res) => {
         errorHandler(err, req, res);
     }
 });
-
 export default router;
