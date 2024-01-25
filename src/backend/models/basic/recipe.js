@@ -9,8 +9,7 @@ const Recipe = sequelizeServer.define("recipe", {
     },
     name: {
         type: Sequelize.STRING,
-        allowNull: false,
-        unique: true
+        allowNull: false,        
     },
     description: {
         type: Sequelize.STRING,

@@ -1,7 +1,7 @@
 import Sequelize from "sequelize";
 import sequelizeServer from '../../database/sequelizeServer.js';
 
-const Like = sequelizeServer.define("like", {
+const PostLike = sequelizeServer.define("postlike", {
     ID: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -9,4 +9,4 @@ const Like = sequelizeServer.define("like", {
     }
 });
 
-export default Like;
+export default PostLike;

@@ -8,12 +8,14 @@ import roleRouter from './auth/role.js';
 import userRouter from './data/user.js';
 import profileRouter from './data/profile.js';
 import postRouter from './data/post.js';
+import commentRouter from './data/comment.js';
 import recipeRouter from './data/recipe.js';
 import imageRouter from './data/image.js';
 
 router.use('/user', userRouter);
 router.use('/profile', profileRouter);
 router.use('/post', postRouter);
+router.use('/comment', commentRouter);
 router.use('/recipe', recipeRouter);
 router.use('/image', imageRouter);
 router.use('/role', roleRouter);

@@ -13,25 +13,32 @@ import ItemImage from './xref/itemImage.js';
 import RecipeImage from './xref/recipeImage.js';
 import ProfileRecipe from './xref/profileRecipes.js';
 import Comment from './xref/comment.js';
-import Like from './xref/like.js';
+import PostLike from './xref/postlike.js';
+import CommentLike from './xref/commentlike.js';
 
 
 User.hasOne(Profile);
 Profile.belongsTo(User);
 
+Profile.hasMany(Image);
 Profile.hasMany(Post);
 Post.belongsTo(Profile);
-Post.hasMany(Like);
+Post.hasMany(PostLike, {as:"Likes"});
 Post.hasMany(Comment);
 
-Like.belongsTo(Post);
-Like.belongsTo(Profile);
+PostLike.belongsTo(Post);
+PostLike.belongsTo(Profile);
 
 Comment.belongsTo(Post);
 Comment.belongsTo(Profile);
+Comment.hasMany(CommentLike, {as:"Likes"});
+Comment.hasMany(Comment, { as: "Replies" });
+
+CommentLike.belongsTo(Comment);
 
 User.belongsToMany(Role, { through: UserRole });
 
+Image.belongsTo(Profile);
 Image.belongsToMany(Profile, { through: ProfileImage });
 Image.belongsToMany(Post, { through: PostImage });
 Image.belongsToMany(Comment, { through: CommentImage });

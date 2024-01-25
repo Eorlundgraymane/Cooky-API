@@ -1,5 +1,6 @@
 import modelController from '../controllers/sequelizeController.js';
 import Post from '../models/basic/post.js';
+import Comment from '../models/xref/comment.js';
 
 export default {
     // GET /api/users -> get all users
@@ -29,6 +30,15 @@ export default {
             let deletedPost = await modelController.delete(Post, postID);
             if (!deletedPost) throw Error('Failed to delete the post');
             else return deletedPost;            
-        }
+        },
+        createComment: async (profileID,postID, text) => {
+            let params = {
+                profileID: profileID,
+                postID:postID,
+                text: text               
+            }
+            let newPost = await modelController.create(Post, params);                   
+            return newPost;
+        },
     }
 }
