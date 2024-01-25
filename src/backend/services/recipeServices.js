@@ -9,11 +9,12 @@ export default {
         }
     },
     post: {
-        createRecipe: async (email, username, password) => {
+        createRecipe: async (profileID, name, description, ingredients) => {
             let params = {
-                email: email,
-                username: username,
-                password: password
+                profileID: profileID,
+                name: name,
+                description: description,
+                ingredients: ingredients
             }
             return await modelController.create(Recipe, params);
         }
