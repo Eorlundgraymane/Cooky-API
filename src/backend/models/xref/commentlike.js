@@ -6,7 +6,16 @@ const CommentLike = sequelizeServer.define("commentlike", {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
-    }
-});
+    },
+},
+    {
+        indexes: [
+            {
+                unique: true,
+                fields: ['commentID', 'profileID']
+            }
+        ]
+    });
+
 
 export default CommentLike;

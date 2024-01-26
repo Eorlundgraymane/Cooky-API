@@ -8,7 +8,7 @@ export default {
     // GET /api/users -> get all users
     get: {
         userByID: async (userID) => {
-            let user = await modelController.findByPk(User, userID, true, true);
+            let user = await modelController.findByPk(User, userID, true);
             return user;
         }
     },

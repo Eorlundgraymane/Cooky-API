@@ -9,14 +9,31 @@ const errorHandler = (err, req, res) => {
 
 router.post('/like', async (req, res) => {
     try {
-        let postID = req.body.postID;
+        let commentID = req.body.commentID;
         let profileID = req.body.profileID;
-        let post = await commentServices.post.likeComment(postID, profileID);
-        res.send(post);
+        let comment = await commentServices.post.likeComment(commentID, profileID);
+        res.send(comment);
     }
     catch (err) {
         errorHandler(err, req, res);
     }
+});
+router.delete('/like', async (req, res) => {
+    try {
+        let commentID = req.body.commentID;
+        let profileID = req.body.profileID;
+        let comment = await commentServices.delete.unlikeComment(commentID, profileID);
+        res.send(comment);
+    }
+    catch (err) {
+        errorHandler(err, req, res);
+    }
+});
+router.post('/image', async (req, res) => {
+    let commentID = req.body.commentID;
+    let imageID = req.body.imageID;
+    let imageXrefID = await commentServices.post.addCommentImage(commentID, imageID);
+    res.send(imageXrefID);
 });
 router.post('/', async (req, res) => {
     try {

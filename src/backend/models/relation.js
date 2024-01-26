@@ -23,7 +23,7 @@ Profile.belongsTo(User);
 Profile.hasMany(Image);
 Profile.hasMany(Post);
 Post.belongsTo(Profile);
-Post.hasMany(PostLike, {as:"Likes"});
+Post.hasMany(PostLike, { as: "Likes" });
 Post.hasMany(Comment);
 
 PostLike.belongsTo(Post);
@@ -31,10 +31,11 @@ PostLike.belongsTo(Profile);
 
 Comment.belongsTo(Post);
 Comment.belongsTo(Profile);
-Comment.hasMany(CommentLike, {as:"Likes"});
+Comment.hasMany(CommentLike, { as: "Likes" });
 Comment.hasMany(Comment, { as: "Replies" });
 
 CommentLike.belongsTo(Comment);
+CommentLike.belongsTo(Profile);
 
 User.belongsToMany(Role, { through: UserRole });
 
@@ -47,7 +48,6 @@ Image.belongsToMany(Item, { through: ItemImage });
 
 Recipe.belongsTo(Profile);
 Recipe.belongsToMany(Profile, { through: ProfileRecipe });
-
 Recipe.hasMany(Item);
 
 export default this;
