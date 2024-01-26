@@ -5,7 +5,7 @@ export default {
     // GET /api/users -> get all users
     get: {
         roleByID: async (roleID) => {
-            return await modelController.findByPk(Role, roleID, true, true);
+            return await modelController.findByPk(Role, roleID, true);
         }
     },
     post: {

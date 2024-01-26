@@ -2,6 +2,13 @@ import express from 'express';
 const router = express.Router();
 import recipeServices from '../../../backend/services/recipeServices.js';
 
+router.post("/image", async (req, res) => {
+    let recipeID = req.body.recipeID;
+    let imageID = req.body.imageID;
+
+    let recipe = await recipeServices.post.addRecipeImage(recipeID, imageID);
+    res.send(recipe);
+});
 router.post("/", async (req, res) => {
     let profileID = req.body.profileID;
     let name = req.body.name;

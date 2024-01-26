@@ -9,8 +9,7 @@ const Post = sequelizeServer.define("post", {
     },
     text: {
         type: Sequelize.STRING,
-        allowNull: false,
-        unique: true
+        allowNull: false,        
     }
 });
 

@@ -6,7 +6,15 @@ const PostLike = sequelizeServer.define("postlike", {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
-    }
-});
+    },
+},
+    {
+        indexes: [
+            {
+                unique: true,
+                fields: ['postID', 'profileID']
+            }
+        ]
+    });
 
 export default PostLike;
