@@ -1,35 +1,10 @@
 import express from 'express';
 const router = express.Router();
-import userServices from '../../../backend/services/userServices.js';
+import userController from '../../controllers/userController.js';
 
-const errorHandler = (err, req, res) => {
-    console.log(err);
-    res.status(500).json(err);
-}
-router.post('/', async (req, res) => {
-    try {
-        console.log(req.body);
-        let email = req.body.email;
-        let username = req.body.username;
-        let password = req.body.password;
-        res.send(await userServices.post.createUser(email, username, password));
-    }
-    catch (err) {
-        errorHandler(err, req, res);
-    }
+router.post('/', (req,res) => userController.post.createUser(req, res));
 
-});
-
-router.get('/', async (req, res) => {
-    try {
-        console.log(req.query);
-        res.send(await userServices.get.userByID(req.query.id));
-    }
-    catch (err) {
-        errorHandler(err, req, res);
-    }
-
-});
+router.get('/', (req,res) => userController.get.userByID(req, res));
 
 
 export default router;

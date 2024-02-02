@@ -5,7 +5,7 @@ import ItemImage from '../models/xref/itemImage.js';
 export default {
     // GET /api/users -> get all users
     get: {
-        recipeByID: async (recipeID) => {
+        itemByID: async (recipeID) => {
             return await modelController.findByPk(Item, recipeID, true);
         }
     },
