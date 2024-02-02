@@ -1,4 +1,4 @@
-import commentServices from '../../../backend/services/commentServices.js';
+import commentServices from '../../backend/services/commentServices.js';
 
 const errorHandler = (err, req, res) => {
     console.log(err);

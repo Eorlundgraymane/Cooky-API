@@ -1,4 +1,4 @@
-import profileServices from '../../../backend/services/profileServices.js';
+import profileServices from '../../backend/services/profileServices.js';
 
 const errorHandler = (err, req, res) => {
     console.log(err);

@@ -1,4 +1,4 @@
-import userServices from "../../backend/services/userServices";
+import userServices from "../../backend/services/userServices.js";
 
 const errorHandler = (err, req, res) => {
     console.log(err);

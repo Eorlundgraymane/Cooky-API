@@ -1,4 +1,4 @@
-import recipeServices from '../../../backend/services/recipeServices.js';
+import recipeServices from '../../backend/services/recipeServices.js';
 
 export default {
     get: {

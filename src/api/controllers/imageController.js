@@ -1,4 +1,4 @@
-import imageServices from '../../../backend/services/imageServices.js';
+import imageServices from '../../backend/services/imageServices.js';
 
 export default {
     get: {
